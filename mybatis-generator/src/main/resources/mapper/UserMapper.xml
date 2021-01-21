@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.generator.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.generator.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="real_name" jdbcType="VARCHAR" property="real_name" />
+    <result column="certificate_type" jdbcType="TINYINT" property="certificate_type" />
+    <result column="certificate_info" jdbcType="VARCHAR" property="certificate_info" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+    <result column="operator_id" jdbcType="BIGINT" property="operator_id" />
+    <result column="operator_name" jdbcType="VARCHAR" property="operator_name" />
+    <result column="is_deleted" jdbcType="BIT" property="is_deleted" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.generator.entity.User">
+    insert into user (id, `name`, age, 
+      real_name, certificate_type, certificate_info, 
+      email, address, birthday, 
+      `password`, gmt_create, gmt_modify, 
+      operator_id, operator_name, is_deleted
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{real_name,jdbcType=VARCHAR}, #{certificate_type,jdbcType=TINYINT}, #{certificate_info,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{gmt_create,jdbcType=TIMESTAMP}, #{gmt_modify,jdbcType=TIMESTAMP}, 
+      #{operator_id,jdbcType=BIGINT}, #{operator_name,jdbcType=VARCHAR}, #{is_deleted,jdbcType=BIT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.generator.entity.User">
+    update user
+    set `name` = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      real_name = #{real_name,jdbcType=VARCHAR},
+      certificate_type = #{certificate_type,jdbcType=TINYINT},
+      certificate_info = #{certificate_info,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      operator_id = #{operator_id,jdbcType=BIGINT},
+      operator_name = #{operator_name,jdbcType=VARCHAR},
+      is_deleted = #{is_deleted,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, `name`, age, real_name, certificate_type, certificate_info, email, address, 
+    birthday, `password`, gmt_create, gmt_modify, operator_id, operator_name, is_deleted
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, `name`, age, real_name, certificate_type, certificate_info, email, address, 
+    birthday, `password`, gmt_create, gmt_modify, operator_id, operator_name, is_deleted
+    from user
+  </select>
+  <resultMap id="BaseResultMap" type="com.mybatis.generator.entity.User">
+    <id column="User" jdbcType="CHAR" property="user" />
+    <result column="Host" jdbcType="CHAR" property="host" />
+    <result column="Select_priv" jdbcType="CHAR" property="select_priv" />
+    <result column="Insert_priv" jdbcType="CHAR" property="insert_priv" />
+    <result column="Update_priv" jdbcType="CHAR" property="update_priv" />
+    <result column="Delete_priv" jdbcType="CHAR" property="delete_priv" />
+    <result column="Create_priv" jdbcType="CHAR" property="create_priv" />
+    <result column="Drop_priv" jdbcType="CHAR" property="drop_priv" />
+    <result column="Reload_priv" jdbcType="CHAR" property="reload_priv" />
+    <result column="Shutdown_priv" jdbcType="CHAR" property="shutdown_priv" />
+    <result column="Process_priv" jdbcType="CHAR" property="process_priv" />
+    <result column="File_priv" jdbcType="CHAR" property="file_priv" />
+    <result column="Grant_priv" jdbcType="CHAR" property="grant_priv" />
+    <result column="References_priv" jdbcType="CHAR" property="references_priv" />
+    <result column="Index_priv" jdbcType="CHAR" property="index_priv" />
+    <result column="Alter_priv" jdbcType="CHAR" property="alter_priv" />
+    <result column="Show_db_priv" jdbcType="CHAR" property="show_db_priv" />
+    <result column="Super_priv" jdbcType="CHAR" property="super_priv" />
+    <result column="Create_tmp_table_priv" jdbcType="CHAR" property="create_tmp_table_priv" />
+    <result column="Lock_tables_priv" jdbcType="CHAR" property="lock_tables_priv" />
+    <result column="Execute_priv" jdbcType="CHAR" property="execute_priv" />
+    <result column="Repl_slave_priv" jdbcType="CHAR" property="repl_slave_priv" />
+    <result column="Repl_client_priv" jdbcType="CHAR" property="repl_client_priv" />
+    <result column="Create_view_priv" jdbcType="CHAR" property="create_view_priv" />
+    <result column="Show_view_priv" jdbcType="CHAR" property="show_view_priv" />
+    <result column="Create_routine_priv" jdbcType="CHAR" property="create_routine_priv" />
+    <result column="Alter_routine_priv" jdbcType="CHAR" property="alter_routine_priv" />
+    <result column="Create_user_priv" jdbcType="CHAR" property="create_user_priv" />
+    <result column="Event_priv" jdbcType="CHAR" property="event_priv" />
+    <result column="Trigger_priv" jdbcType="CHAR" property="trigger_priv" />
+    <result column="Create_tablespace_priv" jdbcType="CHAR" property="create_tablespace_priv" />
+    <result column="ssl_type" jdbcType="CHAR" property="ssl_type" />
+    <result column="max_questions" jdbcType="INTEGER" property="max_questions" />
+    <result column="max_updates" jdbcType="INTEGER" property="max_updates" />
+    <result column="max_connections" jdbcType="INTEGER" property="max_connections" />
+    <result column="max_user_connections" jdbcType="INTEGER" property="max_user_connections" />
+    <result column="plugin" jdbcType="CHAR" property="plugin" />
+    <result column="password_expired" jdbcType="CHAR" property="password_expired" />
+    <result column="password_last_changed" jdbcType="TIMESTAMP" property="password_last_changed" />
+    <result column="password_lifetime" jdbcType="SMALLINT" property="password_lifetime" />
+    <result column="account_locked" jdbcType="CHAR" property="account_locked" />
+    <result column="ssl_cipher" jdbcType="LONGVARBINARY" property="ssl_cipher" />
+    <result column="x509_issuer" jdbcType="LONGVARBINARY" property="x509_issuer" />
+    <result column="x509_subject" jdbcType="LONGVARBINARY" property="x509_subject" />
+    <result column="authentication_string" jdbcType="LONGVARCHAR" property="authentication_string" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user
+    where `User` = #{user,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mybatis.generator.entity.User">
+    insert into user (`User`, `Host`, Select_priv, 
+      Insert_priv, Update_priv, Delete_priv, 
+      Create_priv, Drop_priv, Reload_priv, 
+      Shutdown_priv, Process_priv, File_priv, 
+      Grant_priv, References_priv, Index_priv, 
+      Alter_priv, Show_db_priv, Super_priv, 
+      Create_tmp_table_priv, Lock_tables_priv, Execute_priv, 
+      Repl_slave_priv, Repl_client_priv, Create_view_priv, 
+      Show_view_priv, Create_routine_priv, Alter_routine_priv, 
+      Create_user_priv, Event_priv, Trigger_priv, 
+      Create_tablespace_priv, ssl_type, max_questions, 
+      max_updates, max_connections, max_user_connections, 
+      plugin, password_expired, password_last_changed, 
+      password_lifetime, account_locked, ssl_cipher, 
+      x509_issuer, x509_subject, 
+      authentication_string)
+    values (#{user,jdbcType=CHAR}, #{host,jdbcType=CHAR}, #{select_priv,jdbcType=CHAR}, 
+      #{insert_priv,jdbcType=CHAR}, #{update_priv,jdbcType=CHAR}, #{delete_priv,jdbcType=CHAR}, 
+      #{create_priv,jdbcType=CHAR}, #{drop_priv,jdbcType=CHAR}, #{reload_priv,jdbcType=CHAR}, 
+      #{shutdown_priv,jdbcType=CHAR}, #{process_priv,jdbcType=CHAR}, #{file_priv,jdbcType=CHAR}, 
+      #{grant_priv,jdbcType=CHAR}, #{references_priv,jdbcType=CHAR}, #{index_priv,jdbcType=CHAR}, 
+      #{alter_priv,jdbcType=CHAR}, #{show_db_priv,jdbcType=CHAR}, #{super_priv,jdbcType=CHAR}, 
+      #{create_tmp_table_priv,jdbcType=CHAR}, #{lock_tables_priv,jdbcType=CHAR}, #{execute_priv,jdbcType=CHAR}, 
+      #{repl_slave_priv,jdbcType=CHAR}, #{repl_client_priv,jdbcType=CHAR}, #{create_view_priv,jdbcType=CHAR}, 
+      #{show_view_priv,jdbcType=CHAR}, #{create_routine_priv,jdbcType=CHAR}, #{alter_routine_priv,jdbcType=CHAR}, 
+      #{create_user_priv,jdbcType=CHAR}, #{event_priv,jdbcType=CHAR}, #{trigger_priv,jdbcType=CHAR}, 
+      #{create_tablespace_priv,jdbcType=CHAR}, #{ssl_type,jdbcType=CHAR}, #{max_questions,jdbcType=INTEGER}, 
+      #{max_updates,jdbcType=INTEGER}, #{max_connections,jdbcType=INTEGER}, #{max_user_connections,jdbcType=INTEGER}, 
+      #{plugin,jdbcType=CHAR}, #{password_expired,jdbcType=CHAR}, #{password_last_changed,jdbcType=TIMESTAMP}, 
+      #{password_lifetime,jdbcType=SMALLINT}, #{account_locked,jdbcType=CHAR}, #{ssl_cipher,jdbcType=LONGVARBINARY}, 
+      #{x509_issuer,jdbcType=LONGVARBINARY}, #{x509_subject,jdbcType=LONGVARBINARY}, 
+      #{authentication_string,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.generator.entity.User">
+    update user
+    set `Host` = #{host,jdbcType=CHAR},
+      Select_priv = #{select_priv,jdbcType=CHAR},
+      Insert_priv = #{insert_priv,jdbcType=CHAR},
+      Update_priv = #{update_priv,jdbcType=CHAR},
+      Delete_priv = #{delete_priv,jdbcType=CHAR},
+      Create_priv = #{create_priv,jdbcType=CHAR},
+      Drop_priv = #{drop_priv,jdbcType=CHAR},
+      Reload_priv = #{reload_priv,jdbcType=CHAR},
+      Shutdown_priv = #{shutdown_priv,jdbcType=CHAR},
+      Process_priv = #{process_priv,jdbcType=CHAR},
+      File_priv = #{file_priv,jdbcType=CHAR},
+      Grant_priv = #{grant_priv,jdbcType=CHAR},
+      References_priv = #{references_priv,jdbcType=CHAR},
+      Index_priv = #{index_priv,jdbcType=CHAR},
+      Alter_priv = #{alter_priv,jdbcType=CHAR},
+      Show_db_priv = #{show_db_priv,jdbcType=CHAR},
+      Super_priv = #{super_priv,jdbcType=CHAR},
+      Create_tmp_table_priv = #{create_tmp_table_priv,jdbcType=CHAR},
+      Lock_tables_priv = #{lock_tables_priv,jdbcType=CHAR},
+      Execute_priv = #{execute_priv,jdbcType=CHAR},
+      Repl_slave_priv = #{repl_slave_priv,jdbcType=CHAR},
+      Repl_client_priv = #{repl_client_priv,jdbcType=CHAR},
+      Create_view_priv = #{create_view_priv,jdbcType=CHAR},
+      Show_view_priv = #{show_view_priv,jdbcType=CHAR},
+      Create_routine_priv = #{create_routine_priv,jdbcType=CHAR},
+      Alter_routine_priv = #{alter_routine_priv,jdbcType=CHAR},
+      Create_user_priv = #{create_user_priv,jdbcType=CHAR},
+      Event_priv = #{event_priv,jdbcType=CHAR},
+      Trigger_priv = #{trigger_priv,jdbcType=CHAR},
+      Create_tablespace_priv = #{create_tablespace_priv,jdbcType=CHAR},
+      ssl_type = #{ssl_type,jdbcType=CHAR},
+      max_questions = #{max_questions,jdbcType=INTEGER},
+      max_updates = #{max_updates,jdbcType=INTEGER},
+      max_connections = #{max_connections,jdbcType=INTEGER},
+      max_user_connections = #{max_user_connections,jdbcType=INTEGER},
+      plugin = #{plugin,jdbcType=CHAR},
+      password_expired = #{password_expired,jdbcType=CHAR},
+      password_last_changed = #{password_last_changed,jdbcType=TIMESTAMP},
+      password_lifetime = #{password_lifetime,jdbcType=SMALLINT},
+      account_locked = #{account_locked,jdbcType=CHAR},
+      ssl_cipher = #{ssl_cipher,jdbcType=LONGVARBINARY},
+      x509_issuer = #{x509_issuer,jdbcType=LONGVARBINARY},
+      x509_subject = #{x509_subject,jdbcType=LONGVARBINARY},
+      authentication_string = #{authentication_string,jdbcType=LONGVARCHAR}
+    where `User` = #{user,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select `User`, `Host`, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, 
+    Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, 
+    Index_priv, Alter_priv, Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv, 
+    Execute_priv, Repl_slave_priv, Repl_client_priv, Create_view_priv, Show_view_priv, 
+    Create_routine_priv, Alter_routine_priv, Create_user_priv, Event_priv, Trigger_priv, 
+    Create_tablespace_priv, ssl_type, max_questions, max_updates, max_connections, max_user_connections, 
+    plugin, password_expired, password_last_changed, password_lifetime, account_locked, 
+    ssl_cipher, x509_issuer, x509_subject, authentication_string
+    from user
+    where `User` = #{user,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select `User`, `Host`, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, 
+    Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, 
+    Index_priv, Alter_priv, Show_db_priv, Super_priv, Create_tmp_table_priv, Lock_tables_priv, 
+    Execute_priv, Repl_slave_priv, Repl_client_priv, Create_view_priv, Show_view_priv, 
+    Create_routine_priv, Alter_routine_priv, Create_user_priv, Event_priv, Trigger_priv, 
+    Create_tablespace_priv, ssl_type, max_questions, max_updates, max_connections, max_user_connections, 
+    plugin, password_expired, password_last_changed, password_lifetime, account_locked, 
+    ssl_cipher, x509_issuer, x509_subject, authentication_string
+    from user
+  </select>
+</mapper>
