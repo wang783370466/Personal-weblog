@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.personal.weblog.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.personal.weblog.entity.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="real_name" jdbcType="VARCHAR" property="real_name" />
+    <result column="certificate_type" jdbcType="TINYINT" property="certificate_type" />
+    <result column="certificate_info" jdbcType="VARCHAR" property="certificate_info" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+    <result column="operator_id" jdbcType="BIGINT" property="operator_id" />
+    <result column="operator_name" jdbcType="VARCHAR" property="operator_name" />
+    <result column="is_deleted" jdbcType="BIT" property="is_deleted" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.personal.weblog.entity.User">
+    insert into user (id, `name`, age, 
+      real_name, certificate_type, certificate_info, 
+      email, address, birthday, 
+      `password`, gmt_create, gmt_modify, 
+      operator_id, operator_name, is_deleted
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{real_name,jdbcType=VARCHAR}, #{certificate_type,jdbcType=TINYINT}, #{certificate_info,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{gmt_create,jdbcType=TIMESTAMP}, #{gmt_modify,jdbcType=TIMESTAMP}, 
+      #{operator_id,jdbcType=BIGINT}, #{operator_name,jdbcType=VARCHAR}, #{is_deleted,jdbcType=BIT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.personal.weblog.entity.User">
+    update user
+    set `name` = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      real_name = #{real_name,jdbcType=VARCHAR},
+      certificate_type = #{certificate_type,jdbcType=TINYINT},
+      certificate_info = #{certificate_info,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      operator_id = #{operator_id,jdbcType=BIGINT},
+      operator_name = #{operator_name,jdbcType=VARCHAR},
+      is_deleted = #{is_deleted,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, `name`, age, real_name, certificate_type, certificate_info, email, address, 
+    birthday, `password`, gmt_create, gmt_modify, operator_id, operator_name, is_deleted
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="queryByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, `name`, age, real_name, certificate_type, certificate_info, email, address,
+    birthday, `password`, gmt_create, gmt_modify, operator_id, operator_name, is_deleted
+    from user
+    where `name` = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, `name`, age, real_name, certificate_type, certificate_info, email, address, 
+    birthday, `password`, gmt_create, gmt_modify, operator_id, operator_name, is_deleted
+    from user
+  </select>
+
+</mapper>

@@ -1,8 +1,11 @@
-package com.mybatis.generator.dao;
+package com.personal.weblog.mapper;
 
-import com.mybatis.generator.entity.User;
+import com.personal.weblog.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
 
@@ -13,4 +16,6 @@ public interface UserMapper {
     List<User> selectAll();
 
     int updateByPrimaryKey(User record);
+
+    User queryByName(String userName);
 }
