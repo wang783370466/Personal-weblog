@@ -71,6 +71,11 @@ public class LoginController {
         return RpcResultUtils.buildSuccessResult();
     }
 
+    @RequestMapping("regist")
+    public void regist(@RequestBody User user){
+        userService.inserUser(user);
+    }
+
 
 
 }

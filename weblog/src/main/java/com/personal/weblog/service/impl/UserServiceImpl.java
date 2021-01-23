@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
         User user = userMapper.queryByName(userName);
         return user;
     }
+
+    @Override
+    public void inserUser(User user) {
+        userMapper.insert(user);
+    }
 }

@@ -11,4 +11,6 @@ import com.personal.weblog.entity.User;
 
 public interface UserService {
     User queryByName(String userName);
+
+    void inserUser(User user);
 }
