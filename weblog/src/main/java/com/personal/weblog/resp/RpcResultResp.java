@@ -9,7 +9,7 @@ import lombok.Data;
  * @create: 2021-01-22 17:12
  **/
 @Data
-public class ResultResp {
+public class RpcResultResp {
 
     private Integer code;
 

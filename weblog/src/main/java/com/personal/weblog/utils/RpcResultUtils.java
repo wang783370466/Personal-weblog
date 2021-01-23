@@ -1,6 +1,7 @@
 package com.personal.weblog.utils;
 
-import com.personal.weblog.resp.ResultResp;
+import com.personal.weblog.enums.ResultEnum;
+import com.personal.weblog.resp.RpcResultResp;
 
 /**
  * @program: Personal-weblog
@@ -15,26 +16,41 @@ public class RpcResultUtils {
     public RpcResultUtils() {
     }
 
-    public static ResultResp buildSuccessResult() {
-        ResultResp rpcResult = new ResultResp();
-        rpcResult.setCode(200);
+    public static RpcResultResp buildSuccessResult() {
+        RpcResultResp rpcResult = new RpcResultResp();
+        rpcResult.setCode(SUCCESS);
         rpcResult.setMsg("success");
         return rpcResult;
     }
 
-    public static ResultResp buildErrorResult(int code, String msg) {
-        ResultResp rpcResult = new ResultResp();
-        rpcResult.setCode(code);
-        rpcResult.setMsg(msg);
+    public static RpcResultResp buildSuccessResult(Object object) {
+        RpcResultResp rpcResult = new RpcResultResp();
+        rpcResult.setCode(SUCCESS);
+        rpcResult.setMsg("success");
+        rpcResult.setObject(object);
         return rpcResult;
     }
 
-    public static ResultResp buildDataResult(String msg, Object object){
-        ResultResp resultResp = new ResultResp();
-        resultResp.setCode(200);
-        resultResp.setMsg(msg);
-        resultResp.setObject(object);
-        return resultResp;
+    public static RpcResultResp buildSuccessResult(ResultEnum resultEnm) {
+        RpcResultResp rpcResult = new RpcResultResp();
+        rpcResult.setCode(resultEnm.getCode());
+        rpcResult.setMsg(resultEnm.getDesc());
+        return rpcResult;
+    }
+
+    public static RpcResultResp buildDataResult(int code, String msg, Object object){
+        RpcResultResp rpcResultResp = new RpcResultResp();
+        rpcResultResp.setCode(code);
+        rpcResultResp.setMsg(msg);
+        rpcResultResp.setObject(object);
+        return rpcResultResp;
+    }
+
+    public static RpcResultResp buildMsgResult(int code, String msg){
+        RpcResultResp rpcResultResp = new RpcResultResp();
+        rpcResultResp.setCode(code);
+        rpcResultResp.setMsg(msg);
+        return rpcResultResp;
     }
 }
 
